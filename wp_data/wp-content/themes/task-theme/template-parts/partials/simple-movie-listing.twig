@@ -1,0 +1,31 @@
+<div class="card-container col-sm-5  mb-3">
+    <div class="card">
+        {% if movie_image %}
+            <a href="{{ movie_permalink }}">
+                <img class="card-img-top" src="{{ movie_image }}" alt="{{ movie_title }}">
+            </a>
+        {% endif %}
+        <div class="card-header">
+            <a href="{{ movie_permalink }}">
+                <h5 class="card-title">{{ movie_title }}</h5>
+            </a>
+        </div>
+        <ul class="list-group list-group-flush">
+            {% if movie_genre %}
+                <li class="list-group-item">
+                    <span>Genres:</span>
+                    {% for genre in movie_genre %}
+                        {{ genre }}{% if not loop.last %},{% endif %}
+                    {% endfor %}
+                </li>
+            {% endif %}
+            {% if movie_director %}
+            <li class="list-group-item"><span>Director</span>: {{ movie_director }}</li>
+            {% endif %}
+            {% if movie_released_date %}
+            <li class="list-group-item"><span>Year of release</span>: {{ movie_released_date }}</li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+   
